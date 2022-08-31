@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Version="1" VersionMinor="1" ProductId="432" ProductName="MC4N ECAT">
+    <Environment>
+        <Software SoftwareVersion="4.3.2.16651" />
+        <Controller ControllerVersion="2.0287" ControllerFPGAVersion="10">
+            <Modules>
+                <Module ModuleId="39" FPGAVersion="10" />
+                <Module ModuleId="42" FPGAVersion="10" />
+            </Modules>
+        </Controller>
+    </Environment>
+    <Items>
+        <Item Type="basic" Name="APPLICATION" FileName="APPLICATION.BAS" Storage="internalStorage" Autorun="0" IsAutorun="False" />
+        <Item Type="encryptedBasic" Name="AUTOM" FileName="AUTOM.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="65000" />
+        <Item Type="basic" Name="CAD2MOTION" FileName="CAD2MOTION.BAS" Storage="internalStorage" Autorun="0" IsAutorun="False" />
+        <Item Type="encryptedBasic" Name="DATUMING" FileName="DATUMING.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="63534" />
+        <Item Type="encryptedBasic" Name="DEBUG" FileName="DEBUG.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="8930" />
+        <Item Type="textFile" Name="EC_EXTEND" FileName="EC_EXTEND.TXT" Storage="internalStorage" />
+        <Item Type="encryptedBasic" Name="ECAT_STATUS" FileName="ECAT_STATUS.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="4833" />
+        <Item Type="basic" Name="FIRSTDEMO" FileName="FIRSTDEMO.BAS" Storage="internalStorage" Autorun="0" IsAutorun="False" />
+        <Item Type="encryptedBasic" Name="FUNCTION_MANUAL" FileName="FUNCTION_MANUAL.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="44714" />
+        <Item Type="encryptedBasic" Name="FUNCTION_RESTART_ERROR" FileName="FUNCTION_RESTART_ERROR.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="20163" />
+        <Item Type="encryptedBasic" Name="INITIALISE" FileName="INITIALISE.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="54907" />
+        <Item Type="textFile" Name="INITIALISE_COPY" FileName="INITIALISE_COPY.TXT" Storage="internalStorage" />
+        <Item Type="encryptedBasic" Name="MAIN" FileName="MAIN.ENC" Storage="internalStorage" Autorun="1" IsAutorun="True" EncryptionCRC="52403" />
+        <Item Type="encryptedBasic" Name="MANUAL" FileName="MANUAL.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="8312" />
+        <Item Type="mcConfig" Name="MC_CONFIG" FileName="MC_CONFIG.MCC" Storage="internalStorage" />
+        <Item Type="HMI" Name="PENDANT.HMI" FileName="PENDANT.HMI" Storage="internalStorage" />
+        <Item Type="encryptedBasic" Name="PLC" FileName="PLC.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="45312" />
+        <Item Type="encryptedBasic" Name="SET_FRAME_0" FileName="SET_FRAME_0.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="1041" />
+        <Item Type="encryptedBasic" Name="SET_FRAME_31" FileName="SET_FRAME_31.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="11978" />
+        <Item Type="encryptedBasic" Name="STARTUP" FileName="STARTUP.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="8317" />
+        <Item Type="encryptedBasic" Name="TEACH_SEQ_HMI" FileName="TEACH_SEQ_HMI.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="40757" />
+        <Item Type="basic" Name="TEST_AXIS_16" FileName="TEST_AXIS_16.BAS" Storage="internalStorage" Autorun="2" IsAutorun="True" />
+        <Item Type="basic" Name="TEST_AXIS_17" FileName="TEST_AXIS_17.BAS" Storage="internalStorage" Autorun="3" IsAutorun="True" />
+        <Item Type="textFile" Name="VERSION_CONTROL" FileName="VERSION_CONTROL.TXT" Storage="internalStorage" />
+        <Item Type="encryptedBasic" Name="VR_SET" FileName="VR_SET.ENC" Storage="internalStorage" Autorun="0" IsAutorun="False" EncryptionCRC="52390" />
+    </Items>
+</Project>

@@ -1,0 +1,45 @@
+******************************************************
+Version R1 (09/09/2017)
+******************************************************
+By: LJ
+1) This is similar to the Leadshine version 20 with additional Ethercat status monitoring logic.
+2) Released for only production trials on 09/09/2017 to be used with controller FW: 2.0287
+
+******************************************************
+Version R2
+******************************************************
+By: LJ
+1) Addax axis sequence for V axis (13->6->4) (Removed virtual axis 14 linking from chain)
+2) All outpus will be reset from MAIN program on Estop or Alarm condition
+3) Process 5 & 6 is now free for Application use.
+4) Previosly PROC 5 used for HMI_PROC & PROC 6 used to run SET_FRAME. Now PROC 18 used to run SET_FRAME programs
+ & For HMI PROC = 9 has used.
+5) SRAMP value calculation logic modified in TEACH_SEQ_HMI.
+6) user settable homing logic.
+7) Step mode manual mode joging.
+8) Logic to load default robot paramters, writen in PLC
+9) As Ethercat Drive I/O's are used then extended I/O module numbers will start from 176 (after Drive I/O's)
+10) Alarm message status display logic updated for Ethercat drive status.
+11) PROCESS (0,1,2,3,4,7,8,9,18,21) are already used in the code. Application can use 5 & 6 number process _
+   for their use.
+12) We revert back to old set/wait logic because of cursor display issue on T.P. discussed in the meeting 15.09.17
+13) Adaptive mode ON/OFF selection from T.P. to improve the homing repeatability.
+14) For running the cad2motion profile, now there will be "profile" selection along with the MOVE.
+
+******************************************************
+Version R3 (15/12/17)
+******************************************************
+By:LJ and Ganesh
+
+1)Single time homing based on sensor and Z-marker
+2)Axis status healthy bit has been removed from E-stop logic
+3)Lamp Logic have been updated for Error Indication
+
+(11/1/18) - Meghana and Ganesh
+
+4)PLC Auto control has been edited for start,pause and stop logic
+5)Drive IO's have been included
+6)command done acknowledgement (Autom module) has been given before Teach seq
+HMI since to avoid communication error with Pendant
+
+

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MotionPerfectLayout>
+  <Contents>
+    <Content Name="document_fcf13b0ccc974994ba35fb33c21576c5">
+      <Program Name="TEST_AXIS_16" Process="-1" />
+    </Content>
+    <Content Name="document_b58f6bc014654a738f427a73c97f3d1d">
+      <Program Name="TEST_AXIS_17" Process="-1" />
+    </Content>
+    <Content Name="document_2c7258e1109a4191b215003870f8c85a">
+      <Program Name="CAD2MOTION" Process="-1" />
+    </Content>
+  </Contents>
+  <LayoutRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RootPanel Orientation="Horizontal">
+      <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="368">
+        <LayoutAnchorablePane Id="fe1b8d7d-5324-4f71-8fff-c4298457c0a3" DockWidth="368" FloatingWidth="900" FloatingHeight="600" FloatingLeft="NaN" FloatingTop="NaN">
+          <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Controller" IsSelected="True" ContentId="tool_ControllerTreeControl" LastActivationTimeStamp="07/01/2020 17:35:28" />
+        </LayoutAnchorablePane>
+      </LayoutAnchorablePaneGroup>
+      <LayoutPanel Orientation="Vertical" DockWidth="0.961013645224172*">
+        <LayoutDocumentPaneGroup Orientation="Horizontal">
+          <LayoutDocumentPane>
+            <LayoutDocument Title="TEST_AXIS_16" ContentId="document_fcf13b0ccc974994ba35fb33c21576c5" LastActivationTimeStamp="07/01/2020 17:29:15" />
+            <LayoutDocument Title="TEST_AXIS_17" ContentId="document_b58f6bc014654a738f427a73c97f3d1d" LastActivationTimeStamp="07/01/2020 17:29:19" />
+            <LayoutDocument Title="CAD2MOTION" IsSelected="True" IsLastFocusedDocument="True" ContentId="document_2c7258e1109a4191b215003870f8c85a" LastActivationTimeStamp="07/01/2020 17:34:22" />
+          </LayoutDocumentPane>
+        </LayoutDocumentPaneGroup>
+        <LayoutAnchorablePaneGroup Orientation="Horizontal" DockHeight="199">
+          <LayoutAnchorablePane DockHeight="199">
+            <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Compile/Check Results" IsSelected="True" ContentId="tool_CompileCheckControl" LastActivationTimeStamp="07/01/2020 11:31:59" />
+          </LayoutAnchorablePane>
+          <LayoutAnchorablePane>
+            <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Output" IsSelected="True" ContentId="tool_OutputWindow" LastActivationTimeStamp="07/01/2020 17:36:07" />
+          </LayoutAnchorablePane>
+        </LayoutAnchorablePaneGroup>
+      </LayoutPanel>
+      <LayoutAnchorablePaneGroup Orientation="Vertical" DockWidth="300">
+        <LayoutAnchorablePane Id="b34d49de-d3ee-4c94-be2d-1f02aaab9774" DockWidth="300" />
+      </LayoutAnchorablePaneGroup>
+    </RootPanel>
+    <TopSide />
+    <RightSide />
+    <LeftSide />
+    <BottomSide />
+    <FloatingWindows>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="900" FloatingHeight="600" FloatingLeft="346" FloatingTop="53">
+          <LayoutAnchorablePane Id="4dc21711-f255-44ae-a2e7-267693b0f822" FloatingWidth="900" FloatingHeight="600" FloatingLeft="346" FloatingTop="53" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="900" FloatingHeight="600" FloatingLeft="275" FloatingTop="60">
+          <LayoutAnchorablePane Id="621da0ab-a9db-411b-9583-fd09e7b900ea" FloatingWidth="900" FloatingHeight="600" FloatingLeft="275" FloatingTop="60" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="300" FloatingHeight="300" FloatingLeft="78" FloatingTop="78">
+          <LayoutAnchorablePane Id="ce3bd454-d40a-4180-a6d8-3e1e1557298a" FloatingWidth="300" FloatingHeight="300" FloatingLeft="78" FloatingTop="78" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="380" FloatingHeight="500" FloatingLeft="156" FloatingTop="156">
+          <LayoutAnchorablePane Id="690f9f43-079a-416f-8020-e8c877381afa" FloatingWidth="380" FloatingHeight="500" FloatingLeft="156" FloatingTop="156" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="350" FloatingHeight="500" FloatingLeft="26" FloatingTop="26">
+          <LayoutAnchorablePane Id="af8d3c50-d60b-4803-bbd5-6961dee6cbe2" FloatingWidth="350" FloatingHeight="500" FloatingLeft="26" FloatingTop="26" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="462" FloatingHeight="300" FloatingLeft="311" FloatingTop="148">
+          <LayoutAnchorablePane Id="0e170841-36cc-42da-9529-931926b35443" FloatingWidth="462" FloatingHeight="300" FloatingLeft="311" FloatingTop="148" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="900" FloatingHeight="600" FloatingLeft="104" FloatingTop="104">
+          <LayoutAnchorablePane Id="e7d470d1-443f-444c-8ed6-f822ab185a1f" FloatingWidth="900" FloatingHeight="600" FloatingLeft="104" FloatingTop="104" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="566" FloatingHeight="560" FloatingLeft="149" FloatingTop="54">
+          <LayoutAnchorablePane Id="7aff8c5a-f967-41c4-a079-a32126553e17" FloatingWidth="566" FloatingHeight="560" FloatingLeft="149" FloatingTop="54" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+      <LayoutFloatingWindow xsi:type="LayoutAnchorableFloatingWindow">
+        <RootPanel Orientation="Horizontal" FloatingWidth="900" FloatingHeight="600" FloatingLeft="104" FloatingTop="104">
+          <LayoutAnchorablePane Id="71b565ac-d5c9-45db-8e52-160fd4cbfe98" FloatingWidth="900" FloatingHeight="600" FloatingLeft="104" FloatingTop="104" />
+        </RootPanel>
+      </LayoutFloatingWindow>
+    </FloatingWindows>
+    <Hidden>
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Find and Replace" IsSelected="True" ContentId="tool_FindReplaceWindow" FloatingLeft="78" FloatingTop="78" FloatingWidth="300" FloatingHeight="300" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="ce3bd454-d40a-4180-a6d8-3e1e1557298a" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT Profile Display" IsSelected="True" ContentId="tool_EtherCATDisplayProfileInfoControl_5498424867585132914" FloatingLeft="156" FloatingTop="156" FloatingWidth="380" FloatingHeight="500" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="690f9f43-079a-416f-8020-e8c877381afa" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Toolbox" IsSelected="True" ContentId="tool_ToolBoxControl" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="b34d49de-d3ee-4c94-be2d-1f02aaab9774" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT Internal Database" IsSelected="True" ContentId="tool_EtherCATDisplayVendorAndProductInfoControl" FloatingLeft="26" FloatingTop="26" FloatingWidth="350" FloatingHeight="500" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="af8d3c50-d60b-4803-bbd5-6961dee6cbe2" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT device @ slot 0, address 18, axis 17" IsSelected="True" ContentId="tool_EtherCATDeviceControl_285212690" FloatingLeft="346" FloatingTop="53" FloatingWidth="900" FloatingHeight="600" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="4dc21711-f255-44ae-a2e7-267693b0f822" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT device @ slot 0, address 17, axis 16" IsSelected="True" ContentId="tool_EtherCATDeviceControl_268435473" FloatingLeft="275" FloatingTop="60" FloatingWidth="900" FloatingHeight="600" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="621da0ab-a9db-411b-9583-fd09e7b900ea" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT device @ slot 0, address 5, axis 4" IsSelected="True" ContentId="tool_EtherCATDeviceControl_67108869" FloatingLeft="104" FloatingTop="104" FloatingWidth="900" FloatingHeight="600" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="71b565ac-d5c9-45db-8e52-160fd4cbfe98" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Axis Parameters" IsSelected="True" ContentId="tool_AxisParametersControl" FloatingLeft="311" FloatingTop="148" FloatingWidth="462" FloatingHeight="300" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="0e170841-36cc-42da-9529-931926b35443" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="EtherCAT device @ slot 0, address 6, axis 5" IsSelected="True" ContentId="tool_EtherCATDeviceControl_83886086" FloatingLeft="104" FloatingTop="104" FloatingWidth="900" FloatingHeight="600" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="e7d470d1-443f-444c-8ed6-f822ab185a1f" PreviousContainerIndex="0" />
+      <LayoutAnchorable AutoHideMinWidth="100" AutoHideMinHeight="100" Title="Intelligent drives" IsSelected="True" ContentId="tool_IntelligentDrivesControl" FloatingLeft="149" FloatingTop="54" FloatingWidth="566" FloatingHeight="560" LastActivationTimeStamp="07/01/2020 17:28:43" PreviousContainerId="7aff8c5a-f967-41c4-a079-a32126553e17" PreviousContainerIndex="0" />
+    </Hidden>
+  </LayoutRoot>
+</MotionPerfectLayout>

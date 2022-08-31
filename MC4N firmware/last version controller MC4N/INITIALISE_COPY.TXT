@@ -1,0 +1,925 @@
+'==========================================================
+' Program Description  : INITIALISE - Varibale declaration
+' Created By           : DJ
+' Version              : 1.00
+' Date                 : 22/04/2015
+'==========================================================
+'                  Version History
+'==========================================================
+'Version   Modified By     Date            Modification
+' -.--     --              --/--/----      -----------
+'==========================================================
+
+' variable declaration for VRs and I/Os
+' VR table mapping
+' 0 - 50  machine specific : values to be set from HMI
+' 51 - 60 machine specific : commands to be send from HMI
+' 61 - 100 machine specific : status values send to HMI
+' 101 - 279 Reserved: axis0 to axis9 specific parameters
+' 280 - 299 Reserved: reserved for template
+' 300 - 350 Reserved: internal use
+' 351 - 400 Reserved: error handling
+' 401 - 499 Uniplay HMI alarm display
+ '500 - 4095 machine specific : unused
+
+' Machine specific parameters
+ linkx = 1
+ linkz = 2
+ theta = 3
+ x_offset = 4
+ u_offset = 5
+
+
+ auto_profile = 11 '0 = tal logo, 1 = welding zigzag, 2 = welding circular
+ go_home = 12' command to give
+ set_volts = 13 ' set voltage reference
+ set_current = 14 ' set current reference
+ delay_time = 15 ' delay in mS forto checl weld_status input after turning on weld status output
+ weld_enable = 16 '0 = disabled, 1 = enabled
+ robot_ready = 17
+ acc_fact = 18
+ joint_spd_fact = 19 ' Mult factor to match Joint mode speed and Tool Mode speed
+ man_goto_speed = 20 'fixed speed for MOVE_ROBOT_HERE command.
+ robot_10k_2k = 21 'select 2kg or 10 kg Robot.(0 = for 10 kg and 1 = for 2 Kg)
+ ramp_dn_apply = 22
+ ramp_up_apply = 23
+ acc_ramp_fact = 24
+ man_decel_max_pos = 25 'Manual Jogging decelerate on position value
+ min_speed_prec = 26 ' to set the min robot speed to avoid jerk in the movement
+ fixed_max_accel = 27 ' fixed accel value in auto mode
+ sealant_app_select = 28 'sealant application select
+ merge_ramp_dn_pos = 29 'position to ramp down accel value at the end of merge move
+ fixed_accel_select = 30 ' =0 to select time base accel value & =1 then fixed accel rate (95 deg/sec.sq)
+
+ f28_init_x = 31
+ f28_init_y = 32
+ f28_init_z = 33
+ f28_init_u = 34
+ f28_init_v = 35
+ f28_init_w = 36
+
+ f0_init_x = 41
+ f0_init_y = 42
+ f0_init_z = 43
+ f0_init_u = 44
+ f0_init_v = 45
+ f0_init_w = 46
+
+ rta_drive_load_kg = 47 'for current percentage setting of RTA drive
+
+ 'VRs status variables
+ ecat_comm_stat = 61
+ ecat_pwr_stat = 62
+ ecat_axis_err = 63
+ ecat_fe_err = 64
+ ecat_axis_healty = 65
+ ecat_curr_reduc_stat = 66
+
+ alarm_status_1 = 70 ' Alarm status message (32 bit) to Renu HMI
+ alarm_status_2 = 71 'Alarm message - spare
+ alarm_status_3 = 72 'Alarm message - spare
+
+ last_error = 75
+
+ cycle_st = 80 ' cycle start status
+ cycle_abort = 81 ' abort the cycle
+ cycle_pause = 82 ' pause the cycle
+
+ mpos_ax0 = 83 ' axis0 actual position X
+ mpos_ax1 = 84 ' axis1 actual position Y
+ mpos_ax2 = 85 ' axis2 actual position Z
+ mpos_ax3 = 86 ' axis3 actual position U
+ mpos_ax4 = 87 ' axis4 actual position V
+ mpos_ax15 = 88 ' axis13 actual position W
+ mpos_ax5 = 89 ' axis5 actual position (Slider)
+ mpos_ax6 = 90 ' axis5 actual position (Slider)
+
+ 'io_man_cmd = 89
+ axis_mpos_ax0 = 91 'axis0 actual position of the motor when Frame is not 0
+ axis_mpos_ax1 = 92 'axis1 actual position of the motor when Frame is not 0
+ axis_mpos_ax2 = 93 'axis2 actual position of the motor when Frame is not 0
+ axis_mpos_ax3 = 94 'axis3 actual position of the motor when Frame is not 0
+ axis_mpos_ax4 = 95 'axis4 actual position of the motor when Frame is not 0
+ axis_mpos_ax15 = 96 'axis5 actual position of the motor when Frame is not 0
+
+ motion_stat = 99
+'Table values
+
+ table_robot_length = 1000
+ table_parameters = 10000
+ teach_start = 16000
+ teach_max_para = 50
+ teach_max_pt = 600
+ move_seq_table_start = 2500
+ table_rad_cal = 2600
+
+ fillet_in_table = 3000
+ fillet_out_table = 3100
+
+ 'TABLE for latching repeatablity readings
+ home_final_encoder_latch = 2990
+ latch_table_start = 32000
+ latch_table_total = 10
+
+ bypass_ecat_status_bit = 511998 ' to bypass the ethercat error during homing
+ first_home_status_bit = 511999 'first homing status bit for preliminary procedure during homing
+
+ 'VR variables
+
+
+ jog_speed = 500
+ jog_accel = 501
+ jog_mode = 502'Used in JOGOPERATION command to select the different jog modes
+ speed_up = 503
+ speed_dn = 504
+ accel_up = 505
+ accel_dn = 506
+
+ v_comp = 507 ' To enable V compensation in Y direction (=1 to enable & =0 to disable)
+ v_interp = 508 ' To enable/disable V axis interpolation ( =1 to enable & =0 to disable)
+ u_interp = 509 ' To enable/disable U axis interpolation ( =1 to enable & =0 to disable)
+
+ fs_limit_deg_0 = 510 ' forward software limit in degree for axis 0
+ fs_limit_deg_1 = 511 ' forward software limit in degree for axis 1
+ fs_limit_deg_2 = 512 ' forward software limit in degree for axis 2
+ fs_limit_deg_3 = 513 ' forward software limit in degree for axis 3
+ fs_limit_deg_4 = 514 ' forward software limit in degree for axis 4
+ fs_limit_deg_5 = 515 ' forward software limit in degree for axis 5
+
+ rs_limit_deg_0 = 520 ' reverse software limit in degree for axis 0
+ rs_limit_deg_1 = 521 ' reverse software limit in degree for axis 1
+ rs_limit_deg_2 = 522 ' reverse software limit in degree for axis 2
+ rs_limit_deg_3 = 523 ' reverse software limit in degree for axis 3
+ rs_limit_deg_4 = 524 ' reverse software limit in degree for axis 4
+ rs_limit_deg_5 = 525 ' reverse software limit in degree for axis 5
+
+'526 to 599
+ home_stop = 526 'Homing stop input from HMI
+ jog_type = 527 'Manual Jog type: contineous Jog or Step Jog
+ jog_step = 528 'step in mm or Deg, in step jog mode
+ load_default_para = 529 'Loading of default values of Robot, homing parameters, etc
+ store_teach_pts = 530 'to store the renu T.P. program points to trio table memory
+
+ io_select_1 = 531
+ io_select_2 = 532
+ io_select_3 = 533
+ io_select_4 = 534
+ io_select_5 = 535
+ io_select_6 = 536
+ io_select_7 = 537
+ io_select_8 = 538
+ io_select_9 = 539
+ io_select_10 = 540
+ io_select_11 = 541
+ io_select_12 = 542
+
+ '551 to 599 (for error log display on HMI)
+
+ last_error_log_1 = 551 '551 to 557 used to latch last error log
+ last_error_log_2 = 558 '558 to 564 used to latch second last error log
+ last_error_log_3 = 565 '565 to 571 used to latch third last error log
+ last_error_log_4 = 572 '572 to 578 used to latch fourth last error log
+ last_error_log_5 = 579 '579 to 585 used to latch fifth last error log
+
+ 'Spare 586 to 599
+
+
+ trio_hmi = 600 ' 0 = renu hmi selected, 1 = trio hmi selected
+ adaptive_mode = 601 ' Adaptive mode used in homing for correction logic
+ '601 to 609 = spare
+ home_data_start_add = 610
+ home_total_index = 8 'NOT VR number: total 8 parameters per axis
+
+
+'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+ 'taught parameters display
+ ' posiiton
+ base_display= 700 '710
+ shoulder_display= 701 '711
+ elbow_display=702 '712
+ pitch_display=703' 713
+ roll_display= 704 '714
+ sl_display = 705
+ w_display = 706
+ 'profile
+ line_display = 707 ' display the line selection
+ 'inputs
+ ip1_display = 708 ' load request
+ ip2_display = 709
+ ip3_display = 710
+
+
+ op1_display= 711 '705 clamp a open
+ op2_display= 712 '706 clamp a close
+ op3_display= 713 '707 clamp b open
+ op4_display= 714 ' clamp b close
+ op5_display= 715 ' robot at safe
+ op6_display= 716 ' loading complete
+ op7_display= 717 '
+ frame_display= 718 '
+ speed_display= 719 '
+ prod_display = 720
+ merge_perc_disp = 721 'merge % display with trio HMI
+ merge_display = 722 'merge ON-OFF display with trio HMI
+
+ 'teach parameters data
+ ' posiiton
+ 'taken directly from dpos parameter 720 to 739
+ 'profile
+ line_selection = 727 '709 ' 0 = line  , 1 = circular arc profile
+ 'inputs
+ teach_ip1 = 728 ' load request
+ teach_ip2 = 729
+ teach_ip3 = 730
+
+
+ teach_op1= 731 '751 clamp a open
+ teach_op2= 732 '752 clamp a close
+ teach_op3= 733 '753 clamp b open
+ teach_op4= 734 ' clamp b close
+ teach_op5= 735 ' robot at safe
+ teach_op6= 736 ' loading complete
+ teach_op7= 737 '
+ teach_frame= 738 '
+ teach_speed= 739 '
+ teach_prod = 740
+ merge_perc_trio = 741 'merge % settings from trio HMI
+ teach_merge_trio = 742 ' Merge On-OFF setting with trio HMI
+
+ teach_index=750 '500 Different teach index (0-120)
+ teach_pos=751 '502 'Teach Position
+ insert_pos = 752 ' insert the teach point
+ delete_pos = 753 ' delete the taught point
+ edit_pos = 755 '13
+ reset_teach = 757 ' reset all taught data to 0 value
+
+ last_pos=764 '501 '
+ home_mode = 765 '0= homing on sensor and 1= homing on position
+ step_move = 766 ' Continous Step cycle
+ step_next = 767 ' step movements
+
+ '========================================================
+ 'VR Variables for Renu HMI - 750 to 899
+ '========================================================
+
+ goto_pos = 754 ' goto teach pos command
+ frame_on = 756 ' switch frame 0 from 28 in manual mode
+ goto_pos_done = 758 ' signal to renu for Go to position command acknowledge
+ manual_max_spd = 759 ' manual mode jog max speed limit
+ spd_task_bar = 760 ' speed task bar input from Renu to adjust speed (0 to 100%)
+ sramp_fact = 761 ' s curve factor in %
+ reset_alarm = 762 ' Alarm Reset input form Renu
+ power_saving_bit = 763
+
+ 'controller info to be shown on Renu frontend
+ cont_type = 770
+ cont_sr_no = 771
+ cont_fw_ver = 772
+ cont_prog_ver = 773 ' to display program version
+
+ enc_zero_pos_ax0 = 776
+ enc_zero_pos_ax1 = 777
+ enc_zero_pos_ax2 = 778
+ enc_zero_pos_ax3 = 779
+ enc_zero_pos_ax4 = 780
+
+
+
+ teach_frame_hmi =801
+ teach_base = 802
+ teach_shoulder = 803
+ teach_elbow = 804
+ teach_pitch = 805
+ teach_roll = 806
+ teach_yaw = 807
+ teach_slider = 808
+ teach_cad_prof = 809 'to run the cad profile after the current move
+
+ teach_merge = 810 ' on or off
+ merge_perc = 811 ' merge percentage, 0 to 100%
+ teach_spd_hmi = 812
+ teach_accel = 813
+ teach_prof_hmi = 814 ' profile linear or Arc
+ command_done = 815
+ run_teach_seq = 816
+
+ arm_speed_hmi = 817
+' run_teach_seq = 818
+' command_done = 819
+ command_done_2 = 820 'Ack to Renu for adavance buffer logic
+ cmd_done_set_wait = 821 'set wait logic command done
+
+ '820 to 830 reserved for teach sequence.
+'--------------------IO node 1,2,3-------------------------------------
+ input_status1 = 831 ' input status 0 to 15
+ input_status2 = 832 ' input status 16 to 31
+ input_status3 = 833 ' input status 32 to 47
+
+ op_status1 = 834 ' Output status 8 to 15
+ op_status2 = 835 ' Output status 16 to 31
+ op_status3 = 836 ' Output status 32 to 47
+
+ analog_in1 = 837
+ analog_in2 = 838
+
+ op_force1 = 841 ' Output force 8 to 15
+ op_force2 = 842 ' Output force 16 to 31
+ op_force3 = 843 ' Output force 32 to 47
+
+ aout_force1 = 844 ' Analog out axis 0
+ aout_force2 = 845 ' Analog out axis 0
+ aout_force3 = 846 ' Analog out axis 0
+ aout_force4 = 847 ' Analog out axis 0
+ '------------ IO node 4,5,6------------------------------------------------
+ input_status4 = 848 ' input status 48 to 63
+ input_status5 = 849 ' input status 64 to 79
+ input_status6 = 850 ' input status 80 to 95
+
+ op_status4 = 851 ' Output status 48 to 63
+ op_status5 = 852 ' Output status 64 to 79
+ op_status6 = 853 ' Output status 80 to 95
+
+ op_force4 = 854 ' Output force 48 to 63
+ op_force5 = 855 ' Output force 64 to 79
+ op_force6 = 856 ' Output force 80 to 95
+
+ '------------ IO node 7,8,9,10------------------------------------------------
+ input_status7 = 857 ' input status 96 to 111
+ input_status8 = 858 ' input status 112 to 127
+ input_status9 = 859 ' input status 128 to 143
+ input_status10 = 860 ' input status 144 to 159
+
+ op_status7 = 861 ' Output status 96 to 111
+ op_status8 = 862 ' Output status 112 to 127
+ op_status9 = 863 ' Output status 128 to 143
+ op_status10 = 864 ' Output status 144 to 159
+
+ op_force7 = 865 ' Output force 96 to 111
+ op_force8 = 866 ' Output force 112 to 127
+ op_force9 = 867 ' Output force 128 to 143
+ op_force10 = 868 ' Output force 144 to 159
+
+ '------------ Drive IO's ------------------------------------------------
+ input_statusdi1 = 869 ' input status of Drive 1,2&3
+ input_statusdi2 = 870 ' input status of Drive4&5
+ op_statusdo = 871 ' output status of Drive 1,2&3
+ op_forced0 = 872 ' output status Drive 1,2&3
+'---------------USER FRAME selection VRs------------------------------------------
+ uf1_vision = 941 'user frame 1 selection VR
+ uf2_vision = 942 'user frame 2 selection VR
+ uf3_vision = 943 'user frame 3 selection VR
+ uf4_vision = 944 'user frame 4 selection VR
+ uf5_vision = 945 'user frame 5 selection VR
+
+ uf1_profile = 946 'user frame 1 selection VR
+ uf2_profile = 947 'user frame 2 selection VR
+ uf3_profile = 948 'user frame 3 selection VR
+ uf4_profile = 949 'user frame 4 selection VR
+ uf5_profile = 950 'user frame 5 selection VR
+
+ '-------------------------------SET/WAIT Logic------------------------------------------------
+ set_wait_action = 1001
+ wait_delay = 1002
+ set_wait_io = 1003
+ set_wait_bit = 1004
+ vr_number = 1005
+ vr_value = 1006
+ analogue_op = 1007
+ analogue_op_vlaue = 1008
+ set_wait_spare1 = 1009
+ set_wait_spare2 = 1010
+
+'----------------------------------------------------------------------------------------------
+ cycle_st_bypass =1190
+ cycle_pause_bypass=1191
+ cycle_abort_bypass=1192
+
+'----------------------------------
+
+ sys_load_old = 1201
+ sys_ld_max_old = 1202
+
+ sys_load_curt = 1203
+ sys_ld_max_curr = 1204
+
+ curr_cyc_time_hr = 1205
+ curr_cyc_time_min = 1206
+'-----------------------USER FRAME offsets for vision based applications------------------------
+ uf1_x = 1210
+ uf1_y = 1211
+ uf1_z = 1212
+ uf1_xrot = 1213
+ uf1_yrot = 1214
+ uf1_zrot = 1215
+
+ uf2_x = 1216
+ uf2_y = 1217
+ uf2_z = 1218
+ uf2_xrot = 1219
+ uf2_yrot = 1220
+ uf2_zrot = 1221
+
+ uf3_x = 1222
+ uf3_y = 1223
+ uf3_z = 1224
+ uf3_xrot = 1225
+ uf3_yrot = 1226
+ uf3_zrot = 1227
+
+ uf4_x = 1228
+ uf4_y = 1229
+ uf4_z = 1230
+ uf4_xrot = 1231
+ uf4_yrot = 1232
+ uf4_zrot= 1233
+
+ uf5_x = 1234
+ uf5_y = 1235
+ uf5_z = 1236
+ uf5_xrot = 1237
+ uf5_yrot = 1238
+ uf5_zrot = 1239
+
+ '----------USER FRAME offsets for CAD profiles----------------------------------------------
+ uf6_x = 1240
+ uf6_y = 1241
+ uf6_z = 1242
+ uf6_xrot = 1243
+ uf6_yrot = 1244
+ uf6_zrot = 1245
+
+ uf7_x = 1246
+ uf7_y = 1247
+ uf7_z = 1248
+ uf7_xrot = 1249
+ uf7_yrot = 1250
+ uf7_zrot = 1251
+
+ uf8_x = 1252
+ uf8_y = 1253
+ uf8_z = 1254
+ uf8_xrot = 1255
+ uf8_yrot = 1256
+ uf8_zrot = 1257
+
+ uf9_x = 1258
+ uf9_y = 1259
+ uf9_z = 1260
+ uf9_xrot = 1261
+ uf9_yrot = 1262
+ uf9_zrot = 1263
+
+ uf10_x = 1264
+ uf10_y = 1265
+ uf10_z = 1266
+ uf10_xrot = 1267
+ uf10_yrot = 1268
+ uf10_zrot = 1269
+
+' VR 3000 - 3500 : RTA DRIVE ERROR DEBUG LOG AREA
+
+
+
+'VRs specific to axis
+
+
+'******************************
+'***VR 101 to 120 for Axis 0***
+'******************************
+  enc_cnt_ax0 = 101 ' axis 0 encoder counts per rotation
+  dia_ax0 = 102 ' axis 0 diameter in mm
+  gb_ax0 = 103 ' axis 0 Gear Ratio ( assumption isGB > 1)
+  speed_ax0 = 104 ' axis 0 speed
+  accel_ax0 = 105 ' axis 0 accel
+  decel_ax0 = 106 ' axis 0 decel
+  creep_ax0 = 107 ' axis 0 homing slow speed
+  fdecel_ax0 = 108 ' axis 0 fast deceleration rate
+  jspeed_ax0 = 109 ' axis 0 jog speed
+  dir_0 = 110 ' axis 0 encoder direction inversion 1= yes, 0 = no
+  dat_mode_0 = 111 ' axis 0 datuming/homing mode
+  dat_off_0 = 112 ' axis 0 datuming/homing offset
+  fact0 = 113 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 121 to 140 for Axis 1***
+'******************************
+  enc_cnt_ax1 = 121 ' axis 1 encoder counts per rotation
+  dia_ax1 = 122 ' axis 1 diameter in mm
+  gb_ax1 = 123 ' axis 1 Gear Ratio ( assumption isGB > 1)
+  speed_ax1 = 124 ' axis 1 speed
+  accel_ax1 = 125 ' axis 1 accel
+  decel_ax1 = 126 ' axis 1 decel
+  creep_ax1 = 127 ' axis 1 homing slow speed
+  fdecel_ax1 = 128 ' axis 1 fast deceleration rate
+  jspeed_ax1 = 129 ' axis 1 jog speed
+  dir_1 = 130 ' axis 1 encoder direction inversion 1= yes, 0 = no
+  dat_mode_1 = 131 ' axis 1 datuming/homing mode
+  dat_off_1 = 132 ' axis 1 datuming/homing offset
+  fact1 = 133 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 141 to 160 for Axis 2***
+'******************************
+  enc_cnt_ax2 = 141 ' axis 2 encoder counts per rotation
+  dia_ax2 = 142 ' axis 2 diameter in mm
+  gb_ax2 = 143 ' axis 4 Gear Ratio ( assumption isGB > 1)
+  speed_ax2 = 144 ' axis 2 speed
+  accel_ax2 = 145 ' axis 2 accel
+  decel_ax2 = 146 ' axis 2 decel
+  creep_ax2 = 147 ' axis 2 homing slow speed
+  fdecel_ax2 = 148 ' axis 2 fast deceleration rate
+  jspeed_ax2 = 149 ' axis 2 jog speed
+  dir_2 = 150 ' axis 2 encoder direction inversion 1= yes, 0 = no
+  dat_mode_2 = 151 ' axis 2 datuming/homing mode
+  dat_off_2 = 152 ' axis 2 datuming/homing offset
+  fact2 = 153 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 161 to 180 for Axis 3***
+'******************************
+  enc_cnt_ax3 = 161 ' axis 3 encoder counts per rotation
+  dia_ax3 = 162 ' axis 3 diameter in mm
+  gb_ax3 = 163 ' axis 3 Gear Ratio ( assumption isGB > 1)
+  speed_ax3 = 164 ' axis 3 speed
+  accel_ax3 = 165 ' axis 3 accel
+  decel_ax3 = 166 ' axis 3 decel
+  creep_ax3 = 167 ' axis 3 homing slow speed
+  fdecel_ax3 = 168 ' axis 3 fast deceleration rate
+  jspeed_ax3 = 169 ' axis 3 jog speed
+  dir_3 = 170 ' axis 3 encoder direction inversion 1= yes, 0 = no
+  dat_mode_3 = 171 ' axis 3 datuming/homing mode
+  dat_off_3 = 172 ' axis 3 datuming/homing offset
+  fact3 = 173 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 181 to 200 for Axis 4***
+'******************************
+  enc_cnt_ax4 = 181 ' axis 4 encoder counts per rotation
+  dia_ax4 = 182 ' axis 4 diameter in mm
+  gb_ax4 = 183 ' axis 4 Gear Ratio ( assumption isGB > 1)
+  speed_ax4 = 184 ' axis 4 speed
+  accel_ax4 = 185 ' axis 4 accel
+  decel_ax4 = 186 ' axis 4 decel
+  creep_ax4 = 187 ' axis 4 homing slow speed
+  fdecel_ax4 = 188 ' axis 4 fast deceleration rate
+  jspeed_ax4 = 189 ' axis 4 jog speed
+  dir_4 = 190 ' axis 4 encoder direction inversion 1= yes, 0 = no
+  dat_mode_4 = 191 ' axis 4 datuming/homing mode
+  dat_off_4 = 192 ' axis 4 datuming/homing offset
+  fact4 = 193 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 201 to 220 for Axis 5***
+'******************************
+  enc_cnt_ax5 = 201 ' axis 5 encoder counts per rotation
+  dia_ax5 = 202 ' axis 5 diameter in mm
+  gb_ax5 = 203 ' axis 5 Gear Ratio ( assumption isGB > 1)
+  speed_ax5 = 204 ' axis 5 speed
+  accel_ax5 = 205 ' axis 5 accel
+  decel_ax5 = 206 ' axis 5 decel
+  creep_ax5 = 207 ' axis 5 homing slow speed
+  fdecel_ax5 = 208 ' axis 5 fast deceleration rate
+  jspeed_ax5 = 209 ' axis 5 jog speed
+  dir_5 = 210 ' axis 5 encoder direction inversion 1= yes, 0 = no
+  dat_mode_5 = 211 ' axis 5 datuming/homing mode
+  dat_off_5 = 212 ' axis 5 datuming/homing offset
+  fact5 = 213 ' multiplying factor for converting user units to counts
+
+'******************************
+'***VR 221 to 240 for Axis 6***
+'******************************
+  enc_cnt_ax6 = 221 ' axis 6 encoder counts per rotation
+  dia_ax6 = 222 ' axis 6 diameter in mm
+  gb_ax6 = 223 ' axis 6 Gear Ratio ( assumption isGB > 1)
+  speed_ax6 = 224 ' axis 6 speed
+  accel_ax6 = 225 ' axis 6 accel
+  decel_ax6 = 226 ' axis 6 decel
+  creep_ax6 = 227 ' axis 6 homing slow speed
+  fdecel_ax6 = 228 ' axis 6 fast deceleration rate
+  jspeed_ax6 = 229 ' axis 6 jog speed
+  dir_6 = 230 ' axis 6 encoder direction inversion 1= yes, 0 = no
+  dat_mode_6 = 231 ' axis 6 datuming/homing mode
+  dat_off_6 = 232 ' axis 6 datuming/homing offset
+  fact6 = 233 ' multiplying factor for converting user units to counts
+
+
+'******************************
+'***VR 241 to 260 for Axis 7***
+'******************************
+  enc_cnt_ax7 = 241 ' axis 7 encoder counts per rotation
+  dia_ax7 = 242 ' axis 7 diameter in mm
+  gb_ax7 = 243 ' axis 7 Gear Ratio ( assumption isGB > 1)
+  speed_ax7 = 244 ' axis 7 speed
+  accel_ax7 = 245 ' axis 7 accel
+  decel_ax7 = 246 ' axis 7 decel
+  creep_ax7 = 247 ' axis 7 homing slow speed
+  fdecel_ax7 = 248 ' axis 7 fast deceleration rate
+  jspeed_ax7 = 249 ' axis 7 jog speed
+  dir_7 = 250 ' axis 7 encoder direction inversion 1= yes, 0 = no
+  dat_mode_7 = 251 ' axis 7 datuming/homing mode
+  dat_off_7 = 252 ' axis 7 datuming/homing offset
+  fact7 = 253 ' multiplying factor for converting user units to counts
+
+
+'******************************
+'***VR 261 to 270 for Axis 8***
+'******************************
+  speed_ax8 = 261 ' axis virtual speed
+  accel_ax8 = 262 ' axis virtual accel
+  decel_ax8 = 263 ' axis virtual decel
+  dat_mode_8 = 264 ' axis virtual datuming/homing mode
+  dat_off_8 = 265 ' axis virtual datuming/homing offset
+
+
+'******************************
+'***VR 271 to 280 for Axis 9***
+'******************************
+  speed_ax9 = 271 ' axis virtual speed
+  accel_ax9 = 272 ' axis virtual accel
+  decel_ax9 = 273 ' axis virtual decel
+  dat_mode_9 = 274 ' axis virtual datuming/homing mode
+  dat_off_9 = 275 ' axis virtual datuming/homing offset
+
+
+'******************************
+  axis_select = 281 ' select the axis for jogging mode
+  e_error_axis = 282 ' error axis number, set on motion error
+  plc_cycle_rem = 283 ' amount of PLC time remaining
+  network_drive = 284 ' drive type OFF = analog, ON = network or pulse/direction servo
+
+'******************************
+  speed_ax11 = 291 ' axis virtual speed
+  accel_ax11 = 292 ' axis virtual accel
+  decel_ax11 = 293 ' axis virtual decel
+  dat_mode_11 = 294 ' axis virtual datuming/homing mode
+  dat_off_11 = 295 ' axis virtual datuming/homing offset
+
+'******************************
+' Internal use VRs and flags
+'******************************
+  master_state = 300 ' machine state used by main program
+' machine state values:
+' 0: Disabled state
+' 1: Enabled State, set when enabled but not running
+' 2: Homing State
+' 3: Manual Mode State
+' 4: Running Mode State
+' 5: Error Mode State
+
+  home_stat_ax0 = 301 ' homing status for axis 0
+  home_stat_ax1 = 302 ' homing status for axis 1
+  home_stat_ax2 = 303 ' homing status for axis 2
+  home_stat_ax3 = 304 ' homing status for axis 3
+
+
+  man_stat_ax0 = 321 ' manual mode status for axis 0
+  man_stat_ax1 = 322 ' manual mode status for axis 1
+  man_stat_ax2 = 323 ' manual mode status for axis 2
+  man_stat_ax3 = 324 ' manual mode status for axis 3
+
+  auto_cmd = 341 ' auto mode command
+  auto_stat = 342 ' auto mode status
+  home_stat = 343 ' homing mode status
+  man_stat = 344 ' manual mode status
+  teach_stat = 345 ' teach mode status
+
+  e_axis_stat0 = 351 ' axis 0 axisstatus error code
+  e_axis_stat1 = 352 ' axis 1 axisstatus error code
+  e_axis_stat2 = 353 ' axis 2 axisstatus error code
+  e_axis_stat3 = 354 ' axis 3 axisstatus error code
+  e_axis_stat4 = 355 ' axis 4 axisstatus error code
+  e_axis_stat5 = 356 ' axis 5 axisstatus error code
+  e_axis_stat6 = 357 ' axis 6 axisstatus error code
+  e_axis_stat7 = 358 ' axis 7 axisstatus error code
+
+
+  e_axis_fe0 = 361 ' axis 0 latched following error
+  e_axis_fe1 = 362 ' axis 1 latched following error
+  e_axis_fe2 = 363 ' axis 2 latched following error
+  e_axis_fe3 = 364 ' axis 3 latched following error
+  e_axis_fe4 = 365 ' axis 4 latched following error
+  e_axis_fe5 = 366 ' axis 5 latched following error
+  e_axis_fe6 = 367 ' axis 6 latched following error
+  e_axis_fe7 = 368 ' axis 7 latched following error
+
+
+' For BASICERROR Monitoring in any program
+  error_code_main = 381 ' BASIC run Error code - MAIN
+  error_line_main = 382 ' BASIC run Error line number - MAIN
+  error_code_plc = 383 ' BASIC run Error code - PLC
+  error_line_plc = 384 ' BASIC run Error line number - PLC
+  error_code_vrset = 385 ' BASIC run Error code - VR_SET
+  error_line_vrset = 386 ' BASIC run Error line number - VR_SET
+  error_code_startup = 387 ' BASIC run Error code - STARTUP
+  error_line_startup = 388 ' BASIC run Error line number - STARTUP
+  error_code_man = 389 ' BASIC run Error code - MANUAL
+  error_line_man = 390 ' BASIC run Error line number - MANUAL
+  error_code_autom = 391 ' BASIC run Error code - AUTOM
+  error_line_autom = 392 ' BASIC run Error line number - AUTOM
+  error_code_dat = 393 ' BASIC run Error code - DATUMING
+  error_line_dat = 394 ' BASIC run Error line number - DATUMING
+  error_code_tunn = 395 ' BASIC run Error code - TUNNING
+  error_line_tunn = 396 ' BASIC run Error line number - TUNNING
+
+' ***********************************
+'           Input/Output declaration
+' ***********************************
+' Input 0-4 are allocated for registration inputs#
+
+'Analogue outputs
+  voltage_ref = 0 '0-10V
+  current_ref = 1 '0-10V
+
+'RTA Drive I/O Number (Each Drive has 4 IN / 3 OUT)
+  'Drive - 1 (input No:32 to 35, Output No: 16 to 18)
+  'Drive - 2 (input No:64 to 67, Output No: 48 to 50)
+  'Drive - 3 (input No:96 to 99, Output No: 80 to 82)
+  'Drive - 4 (input No:128 to 131, Output No: 112 to 114)
+  'Drive - 5 (input No:160 to 163, Output No: 144 to 146)
+
+'Digital inputs (Homing sensor on RTA Drive)
+  home0 = 32'0
+  home1 = 64'1
+  home2 = 96'2
+  home3 = 128'3
+  home4 = 160'4
+
+
+  cycle_abort_ip = 1'16'9
+  cycle_start_ip = 2'17'8
+  cycle_pause_ip = 3'18'9
+
+  ' alarm_in = 5 'Drive ready signal will be connected in series
+  manual_in = 4 ' Auto manual selector switch input
+  fan_trip_in = 5 ' FAN trip input for only to make Fault lamp ON
+  auto_in = 6 '
+  estop_in = 7
+  reset_in = 8
+  fault_lamp = 9
+
+  main_output_o10 = 10'14 'This output should be used for Welding Arc,Sealant drop, Gripper, etc.
+  ' on emergency condition this output will be OFF by controller.
+
+  brake_op_ax0 = 11
+  brake_op_ax1 = 12
+  brake_op_ax2 = 13
+  brake_op_ax3 = 14
+  brake_op_ax4 = 15
+
+'machine specific outputs
+
+
+  'Virtual inputs and outputs
+ '======================================================================================================================
+  ' virtual outputs specific to ma1
+  ready = 550
+  home_ok = 551
+  auto_on = 552
+  error = 553
+  at_home = 554
+  disp_home_stat = 555
+  disp_limit_err0 = 556
+  disp_limit_err1 = 557
+  disp_limit_err2 = 558
+  disp_limit_err3 = 559
+  disp_limit_err4 = 560
+  disp_limit_err5 = 561
+
+
+
+  jog_fwd_ax0 = 565'265 '25
+  jog_rev_ax0 = 573 '273 '32
+  jog_fwd_ax1 = 566'266 '26
+  jog_rev_ax1 = 574'274
+  jog_fwd_ax2 = 567'267
+  jog_rev_ax2 = 575'275
+  jog_fwd_ax3 = 568'268
+  jog_rev_ax3 = 576'276
+  jog_fwd_ax4 = 569'269
+  jog_rev_ax4 = 577'277
+  jog_fwd_ax5 = 570'270
+  jog_rev_ax5 = 578'278
+  jog_fwd_ax6 = 571'271
+  jog_rev_ax6 = 579'279
+
+  jog_fwd_ax7 = 572'272
+  jog_rev_ax7 = 580'280
+  f_hold = 500'200 'feed hold input for all axes
+
+
+' VR Specific to machine cycle
+  estop = 50 'Emergancy stop
+
+  enable = 51
+  manual = 52
+  jog_fwd = 53
+  jog_rev = 54
+  home_start = 55
+  auto = 56
+
+
+' alarms on virtual outputs
+  alm0 = 399'199 ' Controller Version mismatch
+  alm1 = 400'200 ' Main Programm stopped running
+  alm2 = 401'201 ' PLC Programm stopped running
+  alm3 = 402'202 ' DATUMING Programm stopped running
+  alm4 = 403'203 ' MANUAL Programm stopped running
+  alm5 = 404'204 ' AUTOM Programm stopped running
+  alm6 = 405'205 ' VR_SET Programm stopped running
+  alm7 = 406'206 ' STARTUP Programm stopped running
+  alm8 = 407'207 ' Frame 31 error
+
+  pwr_save_op = 600
+
+' ***********************************
+'           Constants
+' ***********************************
+  tmr1 = 1
+
+'Axis numbers
+
+  mc_ax0 = 0 ' X axis Real
+  mc_ax1 = 1 ' Y axis Real
+  mc_ax2 = 2 ' Z axis Real
+  mc_ax3 = 3 ' U axis Real
+  mc_ax4 = 4 ' V axis Real
+  mc_ax5 = 5 ' Slider 1
+  mc_ax6 = 6 ' Slider 2
+  mc_ax7 = 7 ' Slider 3
+  mc_ax8 = 8 ' X axis Virtual
+  mc_ax9 = 9 ' Y axis Virtual
+  mc_ax10 = 10 ' Z axis Virtual
+  mc_ax11 = 11 ' U axis Virtual in frame
+  mc_ax12 = 12 ' U axis Virtual out of frame
+  mc_ax13 = 13 ' V axis Virtual in frame
+  mc_ax14 = 14 ' V axis Virtual out of frame
+  mc_ax15 = 15 ' W axis Virtual
+  comp_axis = 6 ' Addax for Axis 4 U compensation + 14 movment
+  jog_axis = 7 ' old jog operation support
+
+  ' axis scaling for linear motion in micro-m(um)
+  micron = 1000000000
+
+  aout_cnt = 2048
+  aout_volt = 10
+  table_write = 1
+  table_read = 2
+
+  'For 10 Kg Robot
+
+  l1x=0
+  l1y=0
+  l1z=464.428
+
+  l2x=0
+  l2y=0
+  l2z=375
+
+  l3x=375
+  l3y=0
+  l3z=0
+
+  l4x=45.5
+  l4y=0
+  l4z=0
+
+  l5x=0
+  l5y=0
+  l5z=0
+
+  'For 2 Kg Robot
+
+  l1x_2kg=0
+  l1y_2kg=0
+  l1z_2kg=223.3
+
+  l2x_2kg=0
+  l2y_2kg=0
+  l2z_2kg=300
+
+  l3x_2kg=300
+  l3y_2kg=0
+  l3z_2kg=0
+
+  l4x_2kg=45.5
+  l4y_2kg=0
+  l4z_2kg=0
+
+  l5x_2kg=0
+  l5y_2kg=0
+  l5z_2kg=0
+
+' ***********************************
+'           Calibration
+'axis calibration based on diameters and encoder counts
+' calculate the circumference in mm
+'factor(cnts/mm)=(encoder counts per rotation* Gear Ratio /circumference in mm)
+' ***********************************
+  following_error_limit_deg_const = 2.4
+  following_error_axlim_deg_const = 2.4
+
+  homing_error_limit_deg_const = 1.2
+  homing_error_axlim_deg_const = 1.2
+
+  max_slip_offset_deg_const = 0.5

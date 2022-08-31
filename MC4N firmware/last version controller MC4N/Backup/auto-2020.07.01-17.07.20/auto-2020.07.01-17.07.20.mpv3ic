@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Contents>
+  <Content Name="tool_ControllerTreeControl">
+    <Tool IsPeriodicUpdateEnabled="true" />
+  </Content>
+  <Content Name="tool_IntelligentDrivesControl">
+    <Tool IsPeriodicUpdateEnabled="true" />
+  </Content>
+  <Content Name="Document_Program_TEST_AXIS_17" />
+  <Content Name="Document_Program_TEST_AXIS_16" />
+  <Content Name="tool_EtherCATDeviceControl_285212690">
+    <Tool IsPeriodicUpdateEnabled="true" SelectedCategoryName="Position control" />
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_268435473">
+    <Tool IsPeriodicUpdateEnabled="true" SelectedCategoryName="" />
+  </Content>
+  <Content Name="Document_EC_EXTEND_Guided_EC_EXTEND" />
+  <Content Name="Document_EC_EXTEND_Text_EC_EXTEND" />
+  <Content Name="tool_FindReplaceWindow">
+    <Tool MainMode="QuickFind">
+      <Options MatchWholeWord="false" MatchCase="false" SearchUp="false" UseRegularExpressions="false">
+        <TargetItemTypes Mode="All" />
+      </Options>
+    </Tool>
+  </Content>
+  <Content Name="Document_MC_CONFIG_MC_CONFIG" />
+  <Content Name="tool_AxisParametersControl">
+    <Tool IsPeriodicUpdateEnabled="true" DisplayAs="0" ShowAllParams="true">
+      <AxesInUse>
+        <Index>16</Index>
+      </AxesInUse>
+    </Tool>
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_83886086">
+    <Tool IsPeriodicUpdateEnabled="true" SelectedCategoryName="Position control" />
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_67108869">
+    <Tool IsPeriodicUpdateEnabled="true" SelectedCategoryName="Position control" />
+  </Content>
+  <Content Name="Document_Program_APPLICATION" />
+  <Content Name="Document_Program_CAD2MOTION" />
+</Contents>

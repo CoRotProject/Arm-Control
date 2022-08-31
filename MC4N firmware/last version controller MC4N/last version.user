@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Contents>
+  <Content Name="tool_ControllerTreeControl">
+    <Tool>
+      <UIState>
+        <Element Name="__tviItemsTool" IsExpanded="True" />
+        <Element Name="__tviItemsSync" IsExpanded="True" />
+        <Element Name="__tviRobotPrograms" IsExpanded="False" />
+        <Element Name="__tviTempItems" IsExpanded="False" />
+        <Element Name="__tviAxes" IsExpanded="False" />
+        <Element Name="__tviMemory" IsExpanded="False" />
+        <Element Name="__tviModules" IsExpanded="False" />
+        <Element Name="__tviConfig" IsExpanded="False" />
+        <Element Name="__tviEnabledFeatures" IsExpanded="False" />
+        <Element Name="__tviCommunications" IsExpanded="False" />
+        <Element Name="__tviDebugInfo" IsExpanded="False" />
+      </UIState>
+    </Tool>
+  </Content>
+  <Content Name="ToolBarSettings_basic">
+    <Content>
+      <ToolBarDebug Band="0" BandIndex="1" />
+      <ToolBarEdit Band="0" BandIndex="0" />
+    </Content>
+  </Content>
+  <Content Name="tool_IntelligentDrivesControl">
+    <Tool SelectedSlot="0" />
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_285212690">
+    <Tool>
+      <UIState>
+        <SelectedTabIndex>0</SelectedTabIndex>
+      </UIState>
+    </Tool>
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_268435473">
+    <Tool>
+      <UIState>
+        <SelectedTabIndex>0</SelectedTabIndex>
+      </UIState>
+    </Tool>
+  </Content>
+  <Content Name="ToolBarSettings_EC_EXTEND_Text" />
+  <Content Name="Document_MC_CONFIG_MC_CONFIG">
+    <Document Title="(All)" />
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_83886086">
+    <Tool>
+      <UIState>
+        <SelectedTabIndex>0</SelectedTabIndex>
+      </UIState>
+    </Tool>
+  </Content>
+  <Content Name="tool_EtherCATDeviceControl_67108869">
+    <Tool>
+      <UIState>
+        <SelectedTabIndex>0</SelectedTabIndex>
+      </UIState>
+    </Tool>
+  </Content>
+  <Content Name="ToolBarSettings_textFile">
+    <Content>
+      <ToolBarDebug Band="0" BandIndex="1" />
+      <ToolBarEdit Band="0" BandIndex="0" />
+    </Content>
+  </Content>
+  <Content Name="pos_tool_ControllerTreeControl">
+    <PositionSettings IsDocked="true" AnchorStyle="Left" SizeToContent="Manual" ResizeMode="CanResize" Left="0" Top="0" Width="0" Height="0" DockWidth="300" DockHeight="300" />
+  </Content>
+  <Content Name="pos_tool_CompileCheckControl">
+    <PositionSettings IsDocked="true" AnchorStyle="Bottom" SizeToContent="Manual" ResizeMode="CanResize" Left="NaN" Top="NaN" Width="300" Height="300" DockWidth="300" DockHeight="300" />
+  </Content>
+  <Content Name="pos_tool_OutputWindow">
+    <PositionSettings IsDocked="true" AnchorStyle="Bottom" SizeToContent="Manual" ResizeMode="CanResize" Left="NaN" Top="NaN" Width="300" Height="300" DockWidth="300" DockHeight="300" />
+  </Content>
+  <Content Name="pos_tool_IntelligentDrivesControl">
+    <PositionSettings IsDocked="false" AnchorStyle="Right" SizeToContent="Manual" ResizeMode="CanResize" Left="NaN" Top="NaN" Width="460" Height="560" DockWidth="300" DockHeight="300" />
+  </Content>
+  <Content Name="pos_tool_EtherCATDeviceControl_83886086">
+    <PositionSettings IsDocked="false" AnchorStyle="Right" SizeToContent="Manual" ResizeMode="CanResize" Left="373" Top="81" Width="900" Height="600" DockWidth="300" DockHeight="300" />
+  </Content>
+</Contents>

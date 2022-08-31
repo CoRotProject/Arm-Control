@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TGM VerMajor="1" VerMinor="0">
+  <Device Platform="WindowsCE" MinPlatformVersion="1" MinClientVersion="1.29.3.1793" LegacyTextBoxMode="False" ScreenResolution="800,600" StartupPage="HMI_AUTO">
+    <Pages>
+      <Page File="HMI_AUTO.TGD" />
+      <Page File="HMI_MANUAL.TGD" />
+      <Page File="HMI_TEACH.TGD" />
+      <Page File="IO_STAT.TGD" />
+      <Page File="PROG_PARAMETERS.TGD" />
+      <Page File="WELDING_PARAMETERS.TGD" />
+    </Pages>
+    <Images AutoPurge="True">
+      <Image File="GREEN-LAMP.png" />
+      <Image File="Home_Symbol.JPG" />
+      <Image File="iconErrorUp.png" />
+      <Image File="LampGreay.png" />
+      <Image File="RED-LAMP.png" />
+    </Images>
+    <TGT>
+      <Assemblies>
+        <Assembly FulName="HMIComponents, Version=2.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Components>
+            <Component>
+              <Type>Trio.HMIComponents.Editor.HMIEditorControl</Type>
+              <Properties>
+                <Property>
+                  <Type>System.Drawing.Color</Type>
+                  <Name>BackColor</Name>
+                  <DefaultValue>#FFCCCCCC</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>BindingRefreshPeriod</Name>
+                  <DefaultValue>250</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+          </Components>
+        </Assembly>
+        <Assembly FulName="HMIClient, Version=1.29.2.1779, Culture=neutral, PublicKeyToken=null">
+          <Components>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBRectangle</Type>
+              <Properties />
+            </Component>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBButton</Type>
+              <Properties>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Enabled</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Drawing.Font</Type>
+                  <Name>Font</Name>
+                  <DefaultValue>Arial:20:0</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>Height</Name>
+                  <DefaultValue>40</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Visible</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>Width</Name>
+                  <DefaultValue>120</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBLabel</Type>
+              <Properties>
+                <Property>
+                  <Type>Trio.HMI.Controls.TVBTextFormat</Type>
+                  <Name>FormatType</Name>
+                  <DefaultValue>FORMAT_TEXT</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Drawing.ContentAlignment</Type>
+                  <Name>TextAlign</Name>
+                  <DefaultValue>TopLeft</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Drawing.Font</Type>
+                  <Name>Font</Name>
+                  <DefaultValue>Arial:20:0</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Visible</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBLine</Type>
+              <Properties />
+            </Component>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBTextBox</Type>
+              <Properties>
+                <Property>
+                  <Type>Trio.HMI.Controls.TVBTextFormat</Type>
+                  <Name>FormatType</Name>
+                  <DefaultValue>FORMAT_TEXT</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Windows.Forms.BorderStyle</Type>
+                  <Name>BorderStyle</Name>
+                  <DefaultValue>FixedSingle</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Enabled</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Drawing.Font</Type>
+                  <Name>Font</Name>
+                  <DefaultValue>Arial:20:0</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>Height</Name>
+                  <DefaultValue>28</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Visible</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>Width</Name>
+                  <DefaultValue>100</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBPictureBox</Type>
+              <Properties>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Enabled</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Visible</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+          </Components>
+        </Assembly>
+        <Assembly FulName="HMIClient, Version=1.25.0.638, Culture=neutral, PublicKeyToken=null">
+          <Components>
+            <Component>
+              <Type>Trio.HMI.Controls.TVBTeachBoxLED</Type>
+              <Properties />
+            </Component>
+          </Components>
+        </Assembly>
+        <Assembly FulName="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, Retargetable=Yes">
+          <Components>
+            <Component>
+              <Type>System.Windows.Forms.TrackBar</Type>
+              <Properties>
+                <Property>
+                  <Type>System.Int32</Type>
+                  <Name>LargeChange</Name>
+                  <DefaultValue>2</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Visible</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+                <Property>
+                  <Type>System.Boolean</Type>
+                  <Name>Enabled</Name>
+                  <DefaultValue>true</DefaultValue>
+                </Property>
+              </Properties>
+            </Component>
+          </Components>
+        </Assembly>
+      </Assemblies>
+    </TGT>
+  </Device>
+</TGM>
